@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+<!--使用context命名控件在配置文件中开启相应的注解处理器-->
+<!--<context:annotation-config/>-->
+ <bean id="address1" class="edu.bupt.gc.homework.Address" >
+  <constructor-arg name="strState" value="中国" ></constructor-arg>
+  <constructor-arg name="strCity"  value="江城"></constructor-arg>
+ </bean>
+ <bean id="address2" class="edu.bupt.gc.homework.Address" >
+  <constructor-arg name="strState" value="中国" ></constructor-arg>
+  <constructor-arg name="strCity"  value="海城"></constructor-arg>
+ </bean>
+
+ <bean id="name1" class="edu.bupt.gc.homework.Name" >
+  <constructor-arg name="strFirstName" value="张" ></constructor-arg>
+  <constructor-arg name="strLastName"  value="三"></constructor-arg>
+ </bean>
+ <bean id="name2" class="edu.bupt.gc.homework.Name" >
+  <property name="strFirstName" value="李"></property>
+  <property name="strLastName" value="四"></property>
+ </bean>
+ <bean id="policeStation1" class="edu.bupt.gc.homework.PoliceStation">
+  <constructor-arg name="location" ref="address1"></constructor-arg>
+ </bean>
+ <bean id="policeStation2" class="edu.bupt.gc.homework.PoliceStation">
+  <constructor-arg name="location" ref="address2"></constructor-arg>
+ </bean>
+ <bean id="resident1" class="edu.bupt.gc.homework.Resident">
+  <constructor-arg name="name" ref="name1"></constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017419"></constructor-arg>
+ </bean>
+ <bean id="resident2" class="edu.bupt.gc.homework.Resident">
+  <constructor-arg name="name" ref="name2"></constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017420"></constructor-arg>
+ </bean>
+ <bean id="resident3" class="edu.bupt.gc.homework.Resident">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="王"></constructor-arg>
+    <constructor-arg name="strLastName" value="五"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address2"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+ <bean id="police1" class="edu.bupt.gc.homework.Police">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="警察"></constructor-arg>
+    <constructor-arg name="strLastName" value="1号"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+ <bean id="police2" class="edu.bupt.gc.homework.Police">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="警察"></constructor-arg>
+    <constructor-arg name="strLastName" value="2号"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+ <bean id="police3" class="edu.bupt.gc.homework.Police">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="警察"></constructor-arg>
+    <constructor-arg name="strLastName" value="3号"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address2"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+
+ <bean id="robber1" class="edu.bupt.gc.homework.Robber">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="强盗"></constructor-arg>
+    <constructor-arg name="strLastName" value="1号"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+
+ <bean id="thief1" class="edu.bupt.gc.homework.Thief">
+  <constructor-arg name="name">
+   <bean class="edu.bupt.gc.homework.Name">
+    <constructor-arg name="strFirstName" value="小偷"></constructor-arg>
+    <constructor-arg name="strLastName" value="1号"></constructor-arg>
+   </bean>
+  </constructor-arg>
+  <constructor-arg name="address" ref="address1"></constructor-arg>
+  <constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+ </bean>
+
+
+<bean id="cheater1" class="edu.bupt.gc.homework.Cheater">
+<constructor-arg name="name">
+ <bean class="edu.bupt.gc.homework.Name">
+  <constructor-arg name="strFirstName" value="诈骗"></constructor-arg>
+  <constructor-arg name="strLastName" value="1号"></constructor-arg>
+ </bean>
+</constructor-arg>
+<constructor-arg name="address" ref="address1"></constructor-arg>
+<constructor-arg name="idCard" value="110101199001017433"></constructor-arg>
+</bean>
+</beans>
